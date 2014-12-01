@@ -1,5 +1,5 @@
 package adler_schwarz_chatroom;
 
-public class Decorator {
-
+public abstract class Decorator implements Text{
+	Text t;
 }
