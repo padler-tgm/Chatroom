@@ -6,6 +6,7 @@ public class Lol extends Decorator{
 		this.t = t;
 	}
 	
+	@Override
 	public String schreiben() {
 		String text = t.schreiben().toLowerCase();
 		for(int i=0;i<words.length;i++){

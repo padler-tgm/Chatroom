@@ -5,6 +5,7 @@ public class Gross extends Decorator{
 		this.t = t;
 	}
 	
+	@Override
 	public String schreiben() {		
 		return t.schreiben().toUpperCase();		
 	}	

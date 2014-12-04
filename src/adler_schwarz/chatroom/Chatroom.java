@@ -12,7 +12,6 @@ public class Chatroom implements Text{
 	
 	@Override
 	public String schreiben() {
-		System.out.println("Text: "+this.textinhalt);
 		return this.textinhalt;
 	}
 }

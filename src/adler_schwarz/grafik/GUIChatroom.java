@@ -1,12 +1,13 @@
 package adler_schwarz.grafik;
 
 import java.awt.*;
+
 import javax.swing.*;
 
-public class GUI extends JFrame{
+public class GUIChatroom extends JFrame{
 	private Controller c;
 	private TextArea send,rec;
-	public GUI(Controller c){
+	public GUIChatroom(Controller c){
 		this.c = c;
 		this.init();
 	}
@@ -15,17 +16,22 @@ public class GUI extends JFrame{
 		this.send = new TextArea();
 		this.rec=new TextArea();
 		this.rec.setEditable(false);
-		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(2,1));
 		
-		JPanel panel1 = new JPanel();
-		panel1.setLayout(new BorderLayout());
+		JPanel panel2 = new JPanel(new GridLayout(2,1));
+		JButton b1 = new JButton("Senden");
+		b1.setActionCommand("s");
+		b1.addActionListener(c);
+		panel2.add(b1);
+		JButton b2 = new JButton("Badwords bearbeiten");
+		b2.setActionCommand("b");
+		b2.addActionListener(c);
+		panel2.add(b2);
 		
-		JButton b = new JButton("Senden");
-		b.addActionListener(c);
-		panel1.add(b,BorderLayout.EAST);
+		JPanel panel1 = new JPanel(new BorderLayout());
+		panel1.add(panel2,BorderLayout.EAST);
 		panel1.add(send);
 		
+		JPanel panel = new JPanel(new GridLayout(2,1));
 		panel.add(rec);
 		panel.add(panel1);
 		add(panel);
@@ -40,7 +46,6 @@ public class GUI extends JFrame{
 		return this.send.getText();
 	}
 
-	
 	/**
 	 * Diese Methode gibt die empfangenen Nachrichten in der Textarea aus
 	 * @param text die neue Nachricht vom Chatroom

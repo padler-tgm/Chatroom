@@ -5,6 +5,7 @@ public class Doppel extends Decorator{
 		this.t = t;
 	}
 
+	@Override
 	public String schreiben() {
 		String text = t.schreiben();
 		String temp = "";
