@@ -1,4 +1,4 @@
-package adler_schwarz_chatroom;
+package adler_schwarz.chatroom;
 
 public class Doppel extends Decorator{
 	public Doppel(Text t) {

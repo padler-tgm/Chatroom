@@ -1,4 +1,4 @@
-package adler_schwarz_grafik;
+package adler_schwarz.grafik;
 
 import java.awt.*;
 import javax.swing.*;

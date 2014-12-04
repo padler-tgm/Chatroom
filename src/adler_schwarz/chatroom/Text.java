@@ -1,5 +1,6 @@
-package adler_schwarz_chatroom;
+package adler_schwarz.chatroom;
 
 public interface Text {
-	public abstract String schreiben();
+	public String schreiben();
+	public void setText(String text);
 }
