@@ -3,9 +3,7 @@ import java.io.*;
 import java.net.*;
 import java.util.Observable;
 
-import adler_schwarz.grafik.GUIChatroom;
-
-public class Client extends Observable{
+public class Client extends Observable implements Runnable{
 	private Socket socket;
 	private String eingabe;
 	public Client(String host, int port) throws Exception{
@@ -42,5 +40,10 @@ public class Client extends Observable{
 	
 	public String getText(){
 		return this.eingabe;
+	}
+	
+	@Override
+	public void run() {
+		this.read();
 	}
 }

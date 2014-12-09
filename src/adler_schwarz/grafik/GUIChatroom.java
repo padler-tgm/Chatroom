@@ -7,6 +7,7 @@ import javax.swing.*;
 public class GUIChatroom extends JFrame{
 	private Controller c;
 	private TextArea send,rec;
+	private JCheckBox check;
 	public GUIChatroom(Controller c){
 		this.c = c;
 		this.init();
@@ -17,7 +18,11 @@ public class GUIChatroom extends JFrame{
 		this.rec=new TextArea();
 		this.rec.setEditable(false);
 		
-		JPanel panel2 = new JPanel(new GridLayout(2,1));
+		JPanel panel2 = new JPanel(new GridLayout(3,1));
+		this.check = new JCheckBox("Badwords deaktivieren");
+		this.check.setActionCommand("badword");
+		this.check.addActionListener(this.c);
+		panel2.add(this.check);
 		JButton b1 = new JButton("Senden");
 		b1.setActionCommand("s");
 		b1.addActionListener(c);
@@ -54,5 +59,14 @@ public class GUIChatroom extends JFrame{
 		this.rec.setText(this.rec.getText()+"\n"+text);
 		this.send.setText("");
 		this.rec.setSelectionStart(this.rec.getText().length());
+	}
+	
+	public boolean isChecked(){
+		if(this.check.isSelected()){
+			this.check.setText("Badwords aktivieren");
+		}else{
+			this.check.setText("Badwords deaktivieren");
+		}
+		return this.check.isSelected();
 	}
 }

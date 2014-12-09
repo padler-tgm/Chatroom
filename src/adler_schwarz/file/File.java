@@ -28,7 +28,7 @@ public class File {
 	}
 
 	public void setData(String badword){
-		this.prop.setProperty("badword"+this.getSize(), badword);
+		this.prop.setProperty("badword"+this.getSize(), badword.toLowerCase());
 	}
 
 	public String getData(){

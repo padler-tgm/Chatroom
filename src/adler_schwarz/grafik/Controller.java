@@ -5,9 +5,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 import adler_schwarz.chatroom.*;
 import adler_schwarz.communication.Client;
+import adler_schwarz.communication.Server;
 import adler_schwarz.file.File;
 
 public class Controller implements ActionListener, Observer{
@@ -15,17 +17,10 @@ public class Controller implements ActionListener, Observer{
 	private Text ct;
 	private GUIChatroom g;
 	private GUIVerwaltung v;
+	private GUIStart st;
 
-	public Controller(Observable observable){
-		this.ct = new Chatroom();
-		this.ct = new Lol(this.ct);
-		this.ct = new BadWord(this.ct);
-		this.ct = new Doppel(this.ct);
-		this.ct = new Gross(this.ct);
-		this.g = new GUIChatroom(this);
-		this.observable = observable;
-		this.observable.addObserver(this);
-		new MessageListener((Client)this.observable);
+	public Controller(){
+		this.st = new GUIStart(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -49,6 +44,30 @@ public class Controller implements ActionListener, Observer{
 				file.close();
 			}else if(button.getActionCommand().equals("back")){
 				this.v.dispose();
+			}else if(button.getActionCommand().equals("anmelden")){
+				if(this.st.isChecked())new Server(Integer.parseInt(this.st.getPort()));
+				this.st.dispose();
+
+				try {
+					this.observable = new Client(this.st.getIP(),Integer.parseInt(this.st.getPort()));
+					this.observable.addObserver(this);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+					System.exit(0);
+				}
+				this.ct = new Chatroom();
+				this.ct = new Gross(new Doppel(new BadWord(new Lol(this.ct))));
+				this.g = new GUIChatroom(this);
+				new Thread(((Client)this.observable)).start();
+			}
+		}
+		if(o instanceof JCheckBox){
+			if(this.g.isChecked()){
+				this.ct = new Chatroom();
+				this.ct = new Gross(new Doppel(new Lol(this.ct)));
+			}else{
+				this.ct = new Chatroom();
+				this.ct = new Gross(new Doppel(new BadWord(new Lol(this.ct))));
 			}
 		}
 	}
@@ -61,6 +80,6 @@ public class Controller implements ActionListener, Observer{
 			this.ct.setText(client.getText());
 			this.g.setTextArea(this.ct.schreiben());
 		}
-		
+
 	}
 }
