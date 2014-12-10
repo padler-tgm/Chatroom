@@ -3,9 +3,9 @@ import adler_schwarz.file.File;
 
 /**
  * Decorator-Klasse die den Text auf badWords filtert und diese durch "$%&*" ersetzt
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public class BadWord extends Decorator {
@@ -19,17 +19,25 @@ public class BadWord extends Decorator {
 	}
 	
 	/**
-	 * öffnet einen FileInputStream und ruft die Methode isBadWord auf, 
-	 * welche bei einem badWord true zurückgibt
+	 * ï¿½ffnet einen FileInputStream und ruft die Methode isBadWord auf, 
+	 * welche bei einem badWord true zurï¿½ckgibt
 	 * dieses badWord wird dann durch "$%&*" ersetzt
 	 * 
-	 * @return der Text ohne böse wörter
+	 * @return der Text ohne bï¿½se wï¿½rter
 	 */
 	@Override
 	public String schreiben() {
-		String ausgabe = t.schreiben();
+		String ausgabe = "";//splitten auf properties words aufpassen like raFi
+		String[] text = t.schreiben().split(" ");
 		File badwords = new File(false);
-		if(badwords.isBadWord(t.schreiben().toLowerCase()))ausgabe = "$%&*";
+		for(int i=0; i<text.length; i++){
+			if(badwords.isBadWord(text[i].toLowerCase())){
+				ausgabe += "$%&*";
+			}else{
+				ausgabe += text[i];
+			}
+			if(i != text.length-1)ausgabe += " ";
+		}
 		badwords.close();
 		return ausgabe;
 	}

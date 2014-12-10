@@ -1,10 +1,10 @@
 package adler_schwarz.chatroom;
 
 /**
- * Oberklasse für alle Decorator-Klassen
+ * Oberklasse fï¿½r alle Decorator-Klassen
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public abstract class Decorator implements Text{

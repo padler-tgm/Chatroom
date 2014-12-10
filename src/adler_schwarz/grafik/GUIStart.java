@@ -6,14 +6,14 @@ import javax.swing.*;
 /**
  * Diese Klasse erstellt die GUI zum Anmelden zu einen Chatroom
  * @author Philipp Adler
- * @author Adin Karic
+ * @author Stefan Schwarz
  *
- * @version 2014-11-20
+ * @version 2014-12-10
  */
 public class GUIStart extends JFrame{
-	private JTextField ip;
-	private JTextField port;
-	private JCheckBox check;
+	private JTextField ip;//Textfeld für die Eingabe der IP-Adresse
+	private JTextField port;//Textfeld für die Eingabe den Port
+	private JCheckBox check;//Checkbox ob der Server auf dem Host gestartet werden soll
 	private Controller c;//Listener für den Button
 	
 	/**
@@ -25,6 +25,9 @@ public class GUIStart extends JFrame{
 		this.init();
 	}
 	
+	/**
+	 * erzeugt die GUI für das Anmelden am Chatroom
+	 */
 	public void init(){
 		JPanel panel1 = new JPanel();
 		panel1.setLayout(new BorderLayout());
@@ -54,17 +57,25 @@ public class GUIStart extends JFrame{
 	}
 	
 	/**
-	 * Diese Methode gibt den Inhalt der Eingaben als String Array zurück
-	 * @return die Inhalte der Textfelder
+	 * Die Methode gibt die eingegebene IP-Adresse aus
+	 * @return die vom Benutzer eingegebene IP-Adresse zurück
 	 */
 	public String getIP(){
 		return this.ip.getText();
 	}
 	
+	/**
+	 * Die Methode gibt den eingegebenen Port aus
+	 * @return die vom Benutzer eingegebenen Port zurück
+	 */
 	public String getPort(){
 		return this.port.getText();
 	}
 	
+	/**
+	 * Gibt aus ob die Checkbox selected ist
+	 * @return ob selected true
+	 */
 	public boolean isChecked(){
 		return this.check.isSelected();
 	}

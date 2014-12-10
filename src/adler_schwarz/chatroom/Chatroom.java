@@ -1,10 +1,10 @@
 package adler_schwarz.chatroom;
 
 /**
- * Core-Klasse, enthält den unformatierten Text
+ * Core-Klasse, enthï¿½lt den unformatierten Text
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public class Chatroom implements Text{
@@ -26,7 +26,7 @@ public class Chatroom implements Text{
 	}
 	
 	/**
-	 * Gibt den Text zurück
+	 * Gibt den Text zurï¿½ck
 	 * @return der Text
 	 */
 	@Override

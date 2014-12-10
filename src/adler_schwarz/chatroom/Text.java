@@ -1,10 +1,10 @@
 package adler_schwarz.chatroom;
 
 /**
- * Interface für alle Text-Klassen
+ * Interface fï¿½r alle Text-Klassen
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public interface Text {

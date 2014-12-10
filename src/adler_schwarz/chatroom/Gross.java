@@ -1,10 +1,10 @@
 package adler_schwarz.chatroom;
 
 /**
- * Decorator-Klasse um alle Buchstaben in Großbuchstaben umzuwandeln
+ * Decorator-Klasse um alle Buchstaben in Groï¿½buchstaben umzuwandeln
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public class Gross extends Decorator{
@@ -18,8 +18,8 @@ public class Gross extends Decorator{
 	}
 	
 	/**
-	 * gibt den gespeicherten Text in Großbuchstaben zurück
-	 * @return der Text in Großbuchstaben
+	 * gibt den gespeicherten Text in Groï¿½buchstaben zurï¿½ck
+	 * @return der Text in Groï¿½buchstaben
 	 */
 	@Override
 	public String schreiben() {		

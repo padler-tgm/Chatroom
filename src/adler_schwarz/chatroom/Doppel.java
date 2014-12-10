@@ -2,9 +2,9 @@ package adler_schwarz.chatroom;
 
 /**
  * Decorator-Klasse die einzelne Buchstaben des Textes verdoppelt
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public class Doppel extends Decorator{
@@ -18,7 +18,7 @@ public class Doppel extends Decorator{
 	}
 
 	/**
-	 * gibt den gespeicherten Text  mit doppelten Buchstaben zurück
+	 * gibt den gespeicherten Text  mit doppelten Buchstaben zurï¿½ck
 	 * @return der Text mit doppelten Buchstaben
 	 */
 	@Override

@@ -1,12 +1,17 @@
 package adler_schwarz.communication;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.net.Socket;
 
-
+/**
+ * Diese Klasse verwaltet nur einen Client
+ * @author Philipp Adler
+ * @author Stefan Schwarz
+ *
+ * @version 2014-12-10
+ */
 public class ThreadServer extends Thread{
-	private Socket socket;
+	private Socket socket;//Socket vom Client
 	private MultiCast t;
 	
 	/**
@@ -16,13 +21,20 @@ public class ThreadServer extends Thread{
 	public ThreadServer(Socket s, MultiCast t) {
 		this.socket = s;
 		this.t = t;
-		this.t.addClient(s);
+		this.t.addClient(s);//fügt dem Client zum MultiCast dazu
 	}
 	
+	/**
+	 * Die write Methode übernimmt als Parameter den Text der Nachricht
+	 * @param eingabe die Nachricht die an alle Clients geschickt wird
+	 */
 	public void write(String eingabe){
 			this.t.write(eingabe);
 	}
 	
+	/**
+	 * Diese Methode liest die empfangenen Nachrichten
+	 */
 	public void read(){
 		try {
 			String inputLine;
@@ -37,7 +49,8 @@ public class ThreadServer extends Thread{
 	
 	/**
 	 * Hier steht drin was der Thread macht.
-	 * In unserem Fall stellt der die Kommunikation zwischen Client und Server dar
+	 * In unserem Fall stellt der die Kommunikation zwischen Client und Server dar in dem er auf Nachrichten wartet und 
+	 * dann an alle Clients schickt
 	 */
 	@Override
 	public void run() {

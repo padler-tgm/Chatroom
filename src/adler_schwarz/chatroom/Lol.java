@@ -1,14 +1,14 @@
 package adler_schwarz.chatroom;
 
 /**
- * Decorator-Klasse die Wörter wie "lachen, *lachen*,..." durch das Wort "lol" ersetzt
+ * Decorator-Klasse die Wï¿½rter wie "lachen, *lachen*,..." durch das Wort "lol" ersetzt
+ * @author Philipp Adler
+ * @author Stefan Schwarz
  * 
- * @author Adler
- * @author Schwarz
  * @version 2014-12-09
  */
 public class Lol extends Decorator{
-	private String[] words = {"lachen", "*lachen*", "lach", "*lach*"};//liste der zu ersetzenden Wörter
+	private String[] words = {"lachen", "*lachen*", "lach", "*lach*"};//liste der zu ersetzenden Wï¿½rter
 	
 	/**
 	 * speichert das Object, welches von dieser Klasse erweitert wird
@@ -19,8 +19,8 @@ public class Lol extends Decorator{
 	}
 	
 	/**
-	 * sucht Wörter wie "lachen, ..." und ersetzt sie durch ein simples "lol"
-	 * @return der Text mit den Wörtern durch "lol" ersetzt
+	 * sucht Wï¿½rter wie "lachen, ..." und ersetzt sie durch ein simples "lol"
+	 * @return der Text mit den Wï¿½rtern durch "lol" ersetzt
 	 */
 	@Override
 	public String schreiben() {
